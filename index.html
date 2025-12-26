@@ -4,70 +4,200 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Email vérifié - Pick'n Co</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #FF9933 0%, #FFB366 50%, #FFCC99 100%);
-      padding: 20px;
+      background-color: #F8F9FA;
+      padding: 24px;
     }
+
     .container {
-      background: white;
+      background: #FFFFFF;
       border-radius: 24px;
-      padding: 48px 40px;
-      max-width: 420px;
+      padding: 48px 32px;
+      max-width: 400px;
       width: 100%;
       text-align: center;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
     }
-    .icon {
-      width: 80px; height: 80px;
-      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+
+    .logo {
+      font-size: 32px;
+      font-weight: 800;
+      color: #2D9B59;
+      margin-bottom: 40px;
+    }
+
+    .icon-container {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #C6E7CE 0%, #9FD7AD 100%);
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin: 0 auto 24px;
     }
-    .icon svg { width: 40px; height: 40px; color: white; }
-    h1 { color: #1a1a1a; font-size: 28px; font-weight: 700; margin-bottom: 12px; }
-    .subtitle { color: #666; font-size: 16px; line-height: 1.6; margin-bottom: 32px; }
+
+    .icon-container svg {
+      width: 40px;
+      height: 40px;
+      color: #2D9B59;
+    }
+
+    h1 {
+      color: #1A1A1A;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      color: #6B7280;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
     .cta-button {
       display: inline-block;
-      background: linear-gradient(135deg, #FF9933 0%, #FF8000 100%);
-      color: white;
+      background-color: #2D9B59;
+      color: #FFFFFF;
       text-decoration: none;
       padding: 16px 32px;
       border-radius: 12px;
       font-size: 16px;
       font-weight: 600;
+      width: 100%;
+      transition: background-color 0.2s ease;
     }
-    .cta-button:hover { opacity: 0.9; }
-    .note { margin-top: 24px; color: #999; font-size: 14px; }
-    .logo { margin-bottom: 24px; }
-    .logo span {
-      font-size: 32px; font-weight: 700;
-      background: linear-gradient(135deg, #FF9933 0%, #FF8000 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+
+    .cta-button:hover {
+      background-color: #268C4F;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 24px 0;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background-color: #E5E7EB;
+    }
+
+    .divider span {
+      padding: 0 16px;
+      color: #9CA3AF;
+      font-size: 14px;
+    }
+
+    .note {
+      color: #9CA3AF;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .footer {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #E5E7EB;
+    }
+
+    .footer-text {
+      color: #9CA3AF;
+      font-size: 12px;
+    }
+
+    /* Animation du check */
+    @keyframes checkmark {
+      0% {
+        stroke-dashoffset: 50;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .checkmark {
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+      animation: checkmark 0.6s ease-out 0.3s forwards;
+    }
+
+    @keyframes scaleIn {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .icon-container {
+      animation: scaleIn 0.4s ease-out;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="logo"><span>Pick'n Co</span></div>
-    <div class="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+    <!-- Logo -->
+    <div class="logo">Pick'n Co</div>
+
+    <!-- Icône de succès -->
+    <div class="icon-container">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path class="checkmark" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
       </svg>
     </div>
+
+    <!-- Titre -->
     <h1>Email vérifié ! 🎉</h1>
-    <p class="subtitle">Super, ton adresse email a été confirmée avec succès !<br>Tu peux maintenant te connecter à l'application.</p>
-    <a href="picknco://login" class="cta-button">Ouvrir l'application</a>
-    <p class="note">Si le bouton ne fonctionne pas, ouvre l'application Pick'n Co manuellement.</p>
+
+    <!-- Sous-titre -->
+    <p class="subtitle">
+      Super, ton adresse email a été confirmée avec succès !<br>
+      Tu peux maintenant te connecter à l'application.
+    </p>
+
+    <!-- Bouton principal -->
+    <a href="picknco://login" class="cta-button">
+      Ouvrir l'application
+    </a>
+
+    <!-- Séparateur -->
+    <div class="divider">
+      <span>ou</span>
+    </div>
+
+    <!-- Note -->
+    <p class="note">
+      Si le bouton ne fonctionne pas, ouvre l'application Pick'n Co manuellement sur ton téléphone.
+    </p>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p class="footer-text">© 2024 Pick'n Co - Organise tes pique-niques entre amis 🌿</p>
+    </div>
   </div>
 </body>
 </html>
