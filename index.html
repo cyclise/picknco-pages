@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email vérifié - Pick'n Co</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #FF9933 0%, #FFB366 50%, #FFCC99 100%);
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      border-radius: 24px;
+      padding: 48px 40px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+    .icon {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .icon svg { width: 40px; height: 40px; color: white; }
+    h1 { color: #1a1a1a; font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+    .subtitle { color: #666; font-size: 16px; line-height: 1.6; margin-bottom: 32px; }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #FF9933 0%, #FF8000 100%);
+      color: white;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .cta-button:hover { opacity: 0.9; }
+    .note { margin-top: 24px; color: #999; font-size: 14px; }
+    .logo { margin-bottom: 24px; }
+    .logo span {
+      font-size: 32px; font-weight: 700;
+      background: linear-gradient(135deg, #FF9933 0%, #FF8000 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo"><span>Pick'n Co</span></div>
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+    <h1>Email vérifié ! 🎉</h1>
+    <p class="subtitle">Super, ton adresse email a été confirmée avec succès !<br>Tu peux maintenant te connecter à l'application.</p>
+    <a href="picknco://login" class="cta-button">Ouvrir l'application</a>
+    <p class="note">Si le bouton ne fonctionne pas, ouvre l'application Pick'n Co manuellement.</p>
+  </div>
+</body>
+</html>
