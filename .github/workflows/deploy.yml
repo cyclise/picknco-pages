@@ -1,0 +1,68 @@
+# GitHub Actions workflow pour déployer GitHub Pages avec injection des secrets
+# 
+# Ce workflow :
+# 1. Récupère le code source
+# 2. Remplace les placeholders par les vraies clés Supabase (depuis GitHub Secrets)
+# 3. Déploie sur GitHub Pages
+#
+# Configuration requise dans GitHub :
+# 1. Aller dans Settings > Secrets and variables > Actions
+# 2. Ajouter les secrets : SUPABASE_URL et SUPABASE_ANON_KEY
+# 3. Dans Settings > Pages, sélectionner "GitHub Actions" comme source
+
+name: Deploy to GitHub Pages
+
+on:
+  # Déclencher sur push vers main
+  push:
+    branches: ["main"]
+  
+  # Permettre le déclenchement manuel
+  workflow_dispatch:
+
+# Permissions pour déployer sur GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un seul déploiement à la fois
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Inject Supabase credentials
+        run: |
+          # Remplacer les placeholders dans tous les fichiers HTML
+          find . -name "*.html" -type f -exec sed -i \
+            -e "s|{{SUPABASE_URL}}|${{ secrets.SUPABASE_URL }}|g" \
+            -e "s|{{SUPABASE_ANON_KEY}}|${{ secrets.SUPABASE_ANON_KEY }}|g" \
+            {} \;
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload du répertoire racine
+          path: '.'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
