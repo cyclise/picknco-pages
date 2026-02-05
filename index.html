@@ -20,53 +20,61 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #F8F9FA;
+      background-color: #f7f9f7;
       padding: 24px;
     }
 
     .container {
       background: #FFFFFF;
-      border-radius: 24px;
-      padding: 48px 32px;
-      max-width: 400px;
+      border-radius: 16px;
+      padding: 40px 32px;
+      max-width: 480px;
       width: 100%;
       text-align: center;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .logo {
-      font-size: 32px;
-      font-weight: 800;
-      color: #2D9B59;
-      margin-bottom: 40px;
+    .logo-image {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 16px;
+      display: block;
+    }
+
+    .logo-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: #8a9a93;
+      margin-bottom: 32px;
     }
 
     .icon-container {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       background: linear-gradient(135deg, #C6E7CE 0%, #9FD7AD 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 24px;
+      animation: scaleIn 0.4s ease-out;
     }
 
     .icon-container svg {
-      width: 40px;
-      height: 40px;
-      color: #2D9B59;
+      width: 48px;
+      height: 48px;
+      color: #148f5b;
     }
 
     h1 {
-      color: #1A1A1A;
-      font-size: 24px;
+      color: #203A2E;
+      font-size: 28px;
       font-weight: 700;
       margin-bottom: 12px;
     }
 
     .subtitle {
-      color: #6B7280;
+      color: #4b5d52;
       font-size: 16px;
       line-height: 1.6;
       margin-bottom: 32px;
@@ -74,19 +82,22 @@
 
     .cta-button {
       display: inline-block;
-      background-color: #2D9B59;
+      background-color: #148f5b;
       color: #FFFFFF;
       text-decoration: none;
       padding: 16px 32px;
-      border-radius: 12px;
+      border-radius: 8px;
       font-size: 16px;
       font-weight: 600;
       width: 100%;
-      transition: background-color 0.2s ease;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(20, 143, 91, 0.3);
     }
 
     .cta-button:hover {
-      background-color: #268C4F;
+      background-color: #117a4d;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(20, 143, 91, 0.4);
     }
 
     .divider {
@@ -100,33 +111,62 @@
       content: '';
       flex: 1;
       height: 1px;
-      background-color: #E5E7EB;
+      background-color: #e6ede8;
     }
 
     .divider span {
       padding: 0 16px;
-      color: #9CA3AF;
+      color: #8a9a93;
       font-size: 14px;
     }
 
     .note {
-      color: #9CA3AF;
+      color: #8a9a93;
       font-size: 14px;
       line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .support-box {
+      background-color: #f7f9f7;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+    }
+
+    .support-title {
+      color: #4b5d52;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .support-text {
+      color: #8a9a93;
+      font-size: 13px;
+    }
+
+    .support-text a {
+      color: #148f5b;
+      text-decoration: none;
+    }
+
+    .support-text a:hover {
+      text-decoration: underline;
     }
 
     .footer {
-      margin-top: 32px;
+      margin-top: 24px;
       padding-top: 24px;
-      border-top: 1px solid #E5E7EB;
+      border-top: 1px solid #e6ede8;
     }
 
     .footer-text {
-      color: #9CA3AF;
-      font-size: 12px;
+      color: #cbd5d0;
+      font-size: 11px;
     }
 
-    /* Animation du check */
+    /* Animations */
     @keyframes checkmark {
       0% {
         stroke-dashoffset: 50;
@@ -153,17 +193,31 @@
       }
     }
 
-    .icon-container {
-      animation: scaleIn 0.4s ease-out;
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .container {
+      animation: fadeInUp 0.5s ease-out;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Logo -->
-    <div class="logo">Pick'n Co</div>
+    <!-- Logo image -->
+    <img src="https://isljkhhcxqlitxdjfaxn.supabase.co/storage/v1/object/public/public-assets/logo_homepage.png" 
+         alt="Pick'n Co" 
+         class="logo-image">
+    <div class="logo-text">Organise tes sorties entre amis</div>
 
-    <!-- Icône de succès -->
+    <!-- Icône de succès avec animation -->
     <div class="icon-container">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
         <path class="checkmark" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
@@ -171,7 +225,7 @@
     </div>
 
     <!-- Titre -->
-    <h1>Email vérifié ! 🎉</h1>
+    <h1>Email vérifié ! 🌿</h1>
 
     <!-- Sous-titre -->
     <p class="subtitle">
@@ -194,9 +248,17 @@
       Si le bouton ne fonctionne pas, ouvre l'application Pick'n Co manuellement sur ton téléphone.
     </p>
 
+    <!-- Support -->
+    <div class="support-box">
+      <p class="support-title">Besoin d'aide ?</p>
+      <p class="support-text">
+        Contacte-nous à <a href="mailto:pickn.co.help.center@gmail.com">pickn.co.help.center@gmail.com</a>
+      </p>
+    </div>
+
     <!-- Footer -->
     <div class="footer">
-      <p class="footer-text">© 2026 Pick'n Co - Organise tes pique-niques 🌿</p>
+      <p class="footer-text">© 2026 Pick'n Co - Tous droits réservés</p>
     </div>
   </div>
 </body>
