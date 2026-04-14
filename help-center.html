@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centre d'aide - Pick'n Co</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f7f9f7;
+      padding: 24px;
+    }
+
+    .container {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 40px 32px;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 0.5s ease-out;
+    }
+
+    .logo-image {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 16px;
+      display: block;
+    }
+
+    .logo-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: #8a9a93;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .icon-container {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      animation: scaleIn 0.4s ease-out;
+    }
+
+    .icon-container svg {
+      width: 48px;
+      height: 48px;
+      color: #148f5b;
+    }
+
+    h1 {
+      color: #203A2E;
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .subtitle {
+      color: #4b5d52;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #203A2E;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .section {
+      margin-bottom: 24px;
+    }
+
+    .faq-item {
+      background-color: #f7f9f7;
+      border-left: 3px solid #148f5b;
+      padding: 16px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 12px;
+    }
+
+    .faq-question {
+      color: #203A2E;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .faq-answer {
+      color: #4b5d52;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .info-box {
+      background-color: #eff6ff;
+      border-left: 3px solid #3b82f6;
+      padding: 16px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 24px;
+    }
+
+    .info-title {
+      color: #1e40af;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .info-text {
+      color: #4b5d52;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #148f5b;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      width: 100%;
+      text-align: center;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(20, 143, 91, 0.3);
+    }
+
+    .cta-button:hover {
+      background-color: #117a4d;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(20, 143, 91, 0.4);
+    }
+
+    .divider {
+      height: 1px;
+      background-color: #e6ede8;
+      margin: 24px 0;
+    }
+
+    .support-box {
+      background-color: #f7f9f7;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .support-title {
+      color: #4b5d52;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .support-text {
+      color: #8a9a93;
+      font-size: 13px;
+    }
+
+    .support-text a {
+      color: #148f5b;
+      text-decoration: none;
+    }
+
+    .support-text a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid #e6ede8;
+    }
+
+    .footer-text {
+      color: #cbd5d0;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .footer-links {
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .footer-links a {
+      color: #8a9a93;
+      font-size: 12px;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    .footer-links a:hover {
+      color: #148f5b;
+      text-decoration: underline;
+    }
+
+    @keyframes scaleIn {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://isljkhhcxqlitxdjfaxn.supabase.co/storage/v1/object/public/public-assets/logo_homepage.png" 
+         alt="Pick'n Co" 
+         class="logo-image">
+    <div class="logo-text">Organise tes sorties entre amis</div>
+
+    <div class="icon-container">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    </div>
+
+    <h1>Centre d'aide</h1>
+    <p class="subtitle">
+      Tu as une question ou un problème avec Pick'n Co ? Tu trouveras ici les réponses aux questions les plus fréquentes.
+    </p>
+
+    <div class="section">
+      <h2>Questions fréquentes</h2>
+
+      <div class="faq-item">
+        <p class="faq-question">Comment créer un événement ?</p>
+        <p class="faq-answer">
+          Appuie sur le bouton <strong>+</strong> au centre de la barre de navigation. Remplis le titre, la date, le lieu et invite tes amis. Ton pique-nique est prêt !
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-question">Comment fonctionne le "Qui apporte quoi" ?</p>
+        <p class="faq-answer">
+          Dans un événement, ajoute les éléments à apporter. Chaque participant peut ensuite s'inscrire sur un élément. Tout le monde voit en temps réel qui apporte quoi.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-question">Comment partager les dépenses ?</p>
+        <p class="faq-answer">
+          Dans l'onglet <strong>Dépenses</strong> de l'événement, ajoute les achats effectués. Pick'n Co calcule automatiquement qui doit combien à qui.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-question">Comment ajouter des amis ?</p>
+        <p class="faq-answer">
+          Va dans ton profil, appuie sur <strong>Ajouter un ami</strong>. Tu peux chercher par pseudo, scanner un QR code ou partager un lien d'invitation.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-question">Je ne reçois pas les notifications</p>
+        <p class="faq-answer">
+          Vérifie que les notifications sont activées dans <strong>Paramètres</strong> de l'app, ainsi que dans les réglages de ton téléphone (Paramètres > Notifications > Pick'n Co).
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-question">Comment supprimer mon compte ?</p>
+        <p class="faq-answer">
+          Va dans <strong>Paramètres > Gestion des données > Supprimer mon compte</strong>. Tu peux aussi envoyer un email à pickn.co.help.center@gmail.com. La suppression est définitive.
+        </p>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <p class="info-title">Protection de tes données</p>
+      <p class="info-text">
+        Pick'n Co respecte ta vie privée conformément au RGPD. Toutes les permissions sont optionnelles et tu gardes le contrôle total sur tes données. Aucune publicité, aucune revente de données.
+      </p>
+    </div>
+
+    <a href="mailto:pickn.co.help.center@gmail.com?subject=Demande%20d'aide%20-%20Pick'n%20Co&body=Bonjour%2C%0A%0AJ'ai%20besoin%20d'aide%20avec%20Pick'n%20Co.%0A%0ADescription%20du%20probl%C3%A8me%20%3A%0A%0AMerci." class="cta-button">
+      Nous contacter par email
+    </a>
+
+    <div class="divider"></div>
+
+    <div class="support-box">
+      <p class="support-title">Besoin d'une aide personnalisée ?</p>
+      <p class="support-text">
+        Écris-nous à <a href="mailto:pickn.co.help.center@gmail.com">pickn.co.help.center@gmail.com</a><br>
+        Nous répondons sous 48 heures.
+      </p>
+    </div>
+
+    <div class="footer">
+      <p class="footer-text">© 2026 Pick'n Co - Tous droits réservés</p>
+      <div class="footer-links">
+        <a href="/account-deletion.html">Suppression de compte</a>
+        <a href="/privacy-policy.html">Politique de confidentialité</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
